@@ -1,16 +1,21 @@
-## Hi there 👋
+# Nomira Digital
 
-<!--
-**nomiradigital/nomiradigital** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Web design, SEO and AI automation agency. Founded in Nepal, serving clients worldwide: USA, UAE, UK, Canada and Nepal.
 
-Here are some ideas to get you started:
+Website: https://nomiradigital.com
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## What we do
+
+Website design and development, SEO and AEO/GEO for AI search, local SEO, AI chatbots and workflow automation, and landing pages for ads.
+
+## Find us
+
+Website: https://nomiradigital.com
+
+Clutch: https://clutch.co/profile/nomira-digital
+
+LinkedIn: https://www.linkedin.com/company/nomira-digital
+
+Behance: https://www.behance.net/nomiradigital
+
+Founder: Mohammad Sazzad, full-stack developer. https://msazzad.com

@@ -25,6 +25,17 @@ Write all outputs to `<footage_dir>/edit/`. Never overwrite source footage. Show
 | Background removal (stills/product) | `rembg i in.png out.png` |
 | Download reference/online sources | `yt-dlp URL` (only content the user owns or has rights to) |
 
+## Kinetic captions + motion graphics (reference-matched reels)
+`kinetic.py` builds a HyperFrames composition over the footage. Two looks:
+- `neon`: Montserrat ExtraBold, words pop in as spoken, lime `#D7FF3C` glowing keyword (~150px), white small lines (~60px), red strike-through, face ring + coral pill, REC camera frame, red glass alert pills, glowing line icons, punch-in zoom.
+- `cine`: Poppins lead-in (~62px), huge Barlow Condensed ExtraBold Italic uppercase keyword (~230px, auto-fit) with white→cyan gradient and blue glow, light sweep, glowing filled icons, punch-in zoom.
+Flow (9:16 source, after cutting):
+1. `$PVS_PY $PVS/transcribe.py cut.mp4 --out edit` → `$PVS_PY $PVS/kinetic.py plan edit/words.json edit/plan.json`
+2. Edit `plan.json` like an editor: one idea per group, keyword = the emotional/meaning word, `fx` (`strike` on negatives, `ring`+`pill` on reactions, `rec` for recording talk, `alert` list for pain points, `zoom` every 2–3 groups), `icon` (send/alert/x/chat/question/star), `pos` top when ring is used.
+3. `$PVS_PY $PVS/kinetic.py build cut.mp4 edit/plan.json edit/kin --look neon|cine --sfx`
+4. `cd edit/kin && npx --yes hyperframes lint && npx --yes hyperframes snapshot --at T1,T2 --no-end --output snaps` (check frames), then `npx --yes hyperframes render --quality high --output renders/overlay.mp4 && ./finish.sh` → `final.mp4` (audio + whoosh/pop SFX, -14 LUFS).
+Hindi/Hinglish: transcribe with `--lang hi` (Devanagari) or `--lang en` for Roman Hinglish captions; check spelling in plan before build.
+
 ## Look recipes (append to export extra filters)
 - **Luxury fashion**: `lut3d=/opt/video-tools/luts/luxury.cube,unsharp=5:5:0.4,noise=alls=5:allf=t,vignette=PI/5` + captions `--style luxury`. Slow pacing (1.5–3 s shots), 24/25 fps feel, slow push-ins (`zoompan=z='min(zoom+0.0008,1.08)':d=1:s=1080x1920`), letterbox optional `pad`/`drawbox`. Music low, ambient SFX (fabric, heels), no busy emojis.
 - **Golden editorial**: `lut3d=.../golden.cube,colortemperature=temperature=5200`.
